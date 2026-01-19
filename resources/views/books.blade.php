@@ -318,9 +318,8 @@
             </div>
 
             <div class="nav-actions">
-                <div class="btn" title="Filter">Filters</div>
-                <div class="btn">Import</div>
-                <div class="btn primary">Add Book</div>
+                <a href="{{ route( 'register') }}" class="btn">Register</a>
+                <a href="{{ route('login') }}" class="btn primary">Login</a>
             </div>
         </nav>
 
