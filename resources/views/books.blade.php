@@ -400,7 +400,7 @@
 
                         <div class="actions" style="margin-top:14px; display:flex; gap:8px;">
 
-                            <a href="{{ route("books.detail",$item->id) }}" style="display: block;">
+                            <a href="{{ route("books.detail",$item->slug) }}" style="display: block;">
                                 <button class="btn primary" style="padding:8px 12px; border-radius:10px;">
                                 Buy Now
                             </button>

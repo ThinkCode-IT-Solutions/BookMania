@@ -208,9 +208,9 @@
 					</div>
 
 					<div class="specs">
-						<div class="spec">304 pages</div>
-						<div class="spec">ISBN 9780735211292</div>
-						<div class="spec">Published 2018</div>
+						<div class="spec">{{ $kitab->pages }} pages</div>
+						<div class="spec">ISBN {{ $kitab->id }}</div>
+						<div class="spec">Published {{ $kitab->created_at->format("Y") }}</div>
 					</div>
 
 					<div class="actions">
@@ -219,7 +219,7 @@
 						<a class="btn" href="#">Wishlist</a>
 					</div>
 
-					<p class="desc">Atomic Habits offers a proven framework for improving—every day. James Clear, one of the world’s leading experts on habit formation, reveals practical strategies that teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.</p>
+					<p class="desc">{{ $kitab->description }}</p>
 
 					<div style="margin-top:18px;">
 						<h4 style="margin:0 0 8px;">Details</h4>

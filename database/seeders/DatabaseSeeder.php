@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // direct tareeka
         Book::factory()->create([
             'name' => "The Atomic Habit",
+            'slug' => 'the-atomic-habit',
             'aurthor_name' => 'James Clear',
             'description' => 'How to build good habit and how to get rid of bad ones',
             'pages' => '300',

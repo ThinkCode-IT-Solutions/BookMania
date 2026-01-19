@@ -17,10 +17,10 @@ class BookController extends Controller
         ]);
     }
 
-    public function bookDetailPage ($book) {
+    public function bookDetailPage (Book $kitab) {
         // dd($book);
 
-        $kitab = Book::find($book);
+        // $kitab = Book::where("slug","=" , $book)->first();
         return view("book-detail",compact("kitab"));
     }
 }
