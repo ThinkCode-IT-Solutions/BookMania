@@ -1,52 +1,86 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
 
-        <!-- Name -->
+<div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+
+  <!-- Left -->
+  <div class="hidden md:flex flex-col justify-center px-16 bg-black text-white">
+    <h1 class="text-3xl font-semibold mb-4">
+      Create your account
+    </h1>
+    <p class="text-gray-400 max-w-sm">
+      Get access to a modern dashboard built for fast-moving software teams.
+    </p>
+  </div>
+
+  <!-- Right -->
+  <div class="flex items-center justify-center px-6">
+    <div class="w-full max-w-sm">
+
+      <h2 class="text-2xl font-semibold mb-6">
+        Sign up
+      </h2>
+
+      <form class="space-y-4">
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+          <label class="text-sm text-gray-600">Name</label>
+          <input
+            type="text"
+            class="mt-1 w-full rounded-md border-gray-300 focus:border-black focus:ring-black"
+            placeholder="John Doe"
+          />
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div>
+          <label class="text-sm text-gray-600">Email</label>
+          <input
+            type="email"
+            class="mt-1 w-full rounded-md border-gray-300 focus:border-black focus:ring-black"
+            placeholder="you@company.com"
+          />
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div>
+          <label class="text-sm text-gray-600">Password</label>
+          <input
+            type="password"
+            class="mt-1 w-full rounded-md border-gray-300 focus:border-black focus:ring-black"
+          />
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <div>
+          <label class="text-sm text-gray-600">Confirm password</label>
+          <input
+            type="password"
+            class="mt-1 w-full rounded-md border-gray-300 focus:border-black focus:ring-black"
+          />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        <button
+          type="submit"
+          class="w-full mt-4 bg-black text-white py-2 rounded-md hover:bg-gray-800 transition"
+        >
+          Create account
+        </button>
+      </form>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+      <p class="mt-6 text-sm text-gray-600">
+        Already have an account?
+        <a href="login.html" class="text-black underline">
+          Log in
+        </a>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

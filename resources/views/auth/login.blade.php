@@ -1,47 +1,83 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
 
-    <form method="POST" action="{{ route('login') }}">
+<div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+
+  <!-- Left -->
+  <div class="hidden md:flex flex-col justify-center px-16 bg-gray-900 text-white">
+    <h1 class="text-3xl font-semibold mb-4">
+      Welcome back
+    </h1>
+    <p class="text-gray-400 max-w-sm">
+      Log in to manage your product, users, and revenue from a single dashboard.
+    </p>
+  </div>
+
+  <!-- Right -->
+  <div class="flex items-center justify-center px-6">
+    <div class="w-full max-w-sm">
+
+      <h2 class="text-2xl font-semibold mb-6">
+        Sign in
+      </h2>
+
+      <form action="{{ route('login.post') }}" method="POST" class="space-y-4">
         @csrf
-
-        <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+          <label class="text-sm text-gray-600">Email</label>
+          <input
+          name="email"
+            type="email"
+            class="mt-1 w-full rounded-md border-gray-300 focus:border-black focus:ring-black"
+            placeholder="you@company.com"
+          />
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div>
+          <label class="text-sm text-gray-600">Password</label>
+          <input
+            name="password"
+            type="password"
+            class="mt-1 w-full rounded-md border-gray-300 focus:border-black focus:ring-black"
+            placeholder="••••••••"
+          />
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="rounded border-gray-300">
+            Remember me
+          </label>
+          <a href="#" class="text-gray-600 hover:text-black">
+            Forgot password?
+          </a>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+        <button
+          type="submit"
+          class="w-full mt-4 bg-black text-white py-2 rounded-md hover:bg-gray-800 transition"
+        >
+          Log in
+        </button>
+      </form>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+      <p class="mt-6 text-sm text-gray-600">
+        Don’t have an account?
+        <a href="register.html" class="text-black underline">
+          Sign up
+        </a>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
