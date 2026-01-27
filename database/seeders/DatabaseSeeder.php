@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // factory wala tareeka
-        // Book::factory()->count(5)->create();
+        User::factory()->count(5)->create();
 
 
         // direct tareeka
@@ -27,8 +28,8 @@ class DatabaseSeeder extends Seeder
             'aurthor_name' => 'James Clear',
             'description' => 'How to build good habit and how to get rid of bad ones',
             'pages' => '300',
-            'price'=> '449',
-            'is_active'=> true,
+            'price' => '449',
+            'is_active' => true,
         ]);
 
         Book::factory()->create([
@@ -39,6 +40,12 @@ class DatabaseSeeder extends Seeder
         ]);
         Book::factory()->create([
             'name' => "The Subtle Art of Not Giving a F*ck",
+        ]);
+
+
+        $this->call([
+            ProductSeeder::class,
+            
         ]);
     }
 }

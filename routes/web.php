@@ -5,14 +5,19 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route("books.index");
-});
+    return view("site.home");
+})->name("home");
 
-
+Route::get("/about", function () {
+    return view("site.about");
+})->name("about");
+Route::get("/contact", function () {
+    return view("site.contact");
+})->name("contact");
 
 Route::get("/books", [BookController::class, "index"])->name("books.index");
 Route::get("/books/{kitab:slug}", [BookController::class, "bookDetailPage"])->name("books.detail");
-
+Route::get("/products", [BookController::class,"products"])->name("products.index");
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

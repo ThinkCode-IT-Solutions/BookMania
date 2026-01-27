@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -12,7 +13,7 @@ class BookController extends Controller
 
         $allBooks = Book::all();
         // dd($allBooks);
-        return view("books",[
+        return view("site.books",[
             "books" => $allBooks,
         ]);
     }
@@ -21,6 +22,12 @@ class BookController extends Controller
         // dd($book);
 
         // $kitab = Book::where("slug","=" , $book)->first();
-        return view("book-detail",compact("kitab"));
+        return view("site.book-detail",compact("kitab"));
+    }
+
+
+    public function products ( ){
+        $allProducts = Product::all();
+        return view("site.products", compact("allProducts"));
     }
 }
