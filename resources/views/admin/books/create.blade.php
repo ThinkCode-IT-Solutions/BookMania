@@ -1,0 +1,69 @@
+<x-layouts.admin-layout>
+
+    <main class="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-6">
+
+        <div class="mb-6">
+            <a href="{{ route("dashboard.books") }}" class="text-slate-600 hover:underline">&larr; Back to books</a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6 max-w-3xl">
+            <h1 class="text-lg font-semibold text-slate-800">Create New Book</h1>
+            <p class="text-sm text-slate-500 mt-1">Fill in the fields below to add a new book. (UI only)</p>
+
+            <form class="mt-6 space-y-4">
+                <div>
+                    <label class="block text-sm text-slate-600">Title</label>
+                    <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Enter book title" />
+                </div>
+
+                <div>
+                    <label class="block text-sm text-slate-600">Author</label>
+                    <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Author name" />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm text-slate-600">Price</label>
+                        <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="$0.00" />
+                    </div>
+                    <div>
+                        <label class="block text-sm text-slate-600">Category</label>
+                        <select class="w-full border rounded-lg px-3 py-2 mt-1">
+                            <option>Fiction</option>
+                            <option>Education</option>
+                            <option>Programming</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-slate-600">Status</label>
+                        <select class="w-full border rounded-lg px-3 py-2 mt-1">
+                            <option>In stock</option>
+                            <option>Low stock</option>
+                            <option>Out of stock</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm text-slate-600">Cover Image</label>
+                    <div class="mt-2 flex items-center gap-4">
+                        <div class="w-24 h-32 bg-slate-100 rounded flex items-center justify-center text-slate-400">Preview</div>
+                        <button type="button" class="border px-3 py-2 rounded">Upload Image</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm text-slate-600">Description</label>
+                    <textarea rows="4" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Short description"></textarea>
+                </div>
+
+                <div class="pt-4">
+                    <button type="button" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded">Create Book</button>
+                    <a href="#" class="ml-3 text-slate-600">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+</x-layouts.admin-layout>

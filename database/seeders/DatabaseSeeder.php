@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // factory wala tareeka
-        User::factory()->count(5)->create();
+        // User::factory()->count(5)->create();
 
 
         // direct tareeka
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ProductSeeder::class,
-            
+
         ]);
     }
 }
