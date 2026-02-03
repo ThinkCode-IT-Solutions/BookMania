@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -12,7 +13,14 @@ class AdminController extends Controller
     }
     public function books()
     {
-        return view('admin.books.index');
+        $allBooks = Book::all();
+        return view('admin.books.index', [
+            'books' => $allBooks,
+        ]);
+    }
+
+    public function postBooks(Request $request) {
+        dd($request->all());
     }
     public function create()
     {

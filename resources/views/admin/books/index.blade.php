@@ -4,18 +4,19 @@
 
     <main class="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-6">
 
-                <!-- Page Title Area -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-800">Books Catalog</h1>
-                        <p class="text-sm text-slate-500 mt-1"> Here is your bookstore's All Products</p>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <a href="{{ route("dashboard.books.create") }}" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium py-2 px-4 rounded-lg shadow-sm transition-colors flex items-center">
-                            <i class="fa-solid fa-plus mr-2"></i> Add New Book
-                        </a>
-                    </div>
-                </div>
+        <!-- Page Title Area -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-800">Books Catalog</h1>
+                <p class="text-sm text-slate-500 mt-1"> Here is your bookstore's All Products</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <a href="{{ route('dashboard.books.create') }}"
+                    class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium py-2 px-4 rounded-lg shadow-sm transition-colors flex items-center">
+                    <i class="fa-solid fa-plus mr-2"></i> Add New Book
+                </a>
+            </div>
+        </div>
 
         <!-- Filters / Actions -->
         <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
@@ -30,59 +31,6 @@
             <div class="text-sm text-slate-500">Showing <strong>3</strong> sample books</div>
         </div>
 
-        <!-- Books Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Book Card 1 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                <img src="https://via.placeholder.com/600x300?text=Book+Cover" alt="Cover" class="w-full h-40 object-cover" />
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-slate-800">The Great Adventure</h3>
-                    <p class="text-sm text-slate-500 mt-1">by John Doe</p>
-                    <div class="mt-3 flex items-center justify-between">
-                        <div class="text-sm font-medium text-slate-700">$14.99</div>
-                        <div class="flex items-center gap-2">
-                            <a href="#" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-eye"></i></a>
-                            <a href="#" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="#" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Book Card 2 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                <img src="https://via.placeholder.com/600x300?text=Book+Cover" alt="Cover" class="w-full h-40 object-cover" />
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-slate-800">Learning Laravel</h3>
-                    <p class="text-sm text-slate-500 mt-1">by Jane Smith</p>
-                    <div class="mt-3 flex items-center justify-between">
-                        <div class="text-sm font-medium text-slate-700">$24.00</div>
-                        <div class="flex items-center gap-2">
-                            <a href="#" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-eye"></i></a>
-                            <a href="#" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="#" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Book Card 3 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                <img src="https://via.placeholder.com/600x300?text=Book+Cover" alt="Cover" class="w-full h-40 object-cover" />
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-slate-800">Design Patterns Explained</h3>
-                    <p class="text-sm text-slate-500 mt-1">by Alex Rivers</p>
-                    <div class="mt-3 flex items-center justify-between">
-                        <div class="text-sm font-medium text-slate-700">$19.50</div>
-                        <div class="flex items-center gap-2">
-                            <a href="#" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-eye"></i></a>
-                            <a href="#" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="#" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Table view (optional) -->
         <div class="mt-8 bg-white rounded-lg shadow-sm p-4">
@@ -103,19 +51,27 @@
                         </tr>
                     </thead>
                     <tbody class="text-slate-700">
-                        <tr class="border-b">
-                            <td class="p-3">The Great Adventure</td>
-                            <td class="p-3">John Doe</td>
-                            <td class="p-3">Fiction</td>
-                            <td class="p-3">$14.99</td>
-                            <td class="p-3"><span class="text-emerald-600">In stock</span></td>
-                            <td class="p-3">
-                                <a href="#" class="text-sky-600 hover:underline mr-3">View</a>
-                                <a href="#" class="text-slate-600 hover:underline mr-3">Edit</a>
-                                <a href="#" class="text-red-600 hover:underline">Delete</a>
-                            </td>
-                        </tr>
-                        <tr class="border-b">
+
+                        @if ($books->isNotEmpty())
+
+                            @foreach ($books as $item)
+                                <tr class="border-b">
+                                    <td class="p-3">{{ $item->name }}</td>
+                                    <td class="p-3">{{ $item->aurthor_name }}</td>
+                                    <td class="p-3">{{ $item->category ?? "No Category" }}</td>
+                                    <td class="p-3">${{ $item->price }}</td>
+                                    <td class="p-3"><span class="text-emerald-600">In stock</span></td>
+                                    <td class="p-3">
+                                        <a href="#" class="text-sky-600 hover:underline mr-3">View</a>
+                                        <a href="#" class="text-slate-600 hover:underline mr-3">Edit</a>
+                                        <a href="#" class="text-red-600 hover:underline">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <p>No data to show</p>
+                        @endif
+                        {{-- <tr class="border-b">
                             <td class="p-3">Learning Laravel</td>
                             <td class="p-3">Jane Smith</td>
                             <td class="p-3">Education</td>
@@ -138,7 +94,7 @@
                                 <a href="#" class="text-slate-600 hover:underline mr-3">Edit</a>
                                 <a href="#" class="text-red-600 hover:underline">Delete</a>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>

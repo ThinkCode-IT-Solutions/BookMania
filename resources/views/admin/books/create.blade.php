@@ -10,25 +10,35 @@
             <h1 class="text-lg font-semibold text-slate-800">Create New Book</h1>
             <p class="text-sm text-slate-500 mt-1">Fill in the fields below to add a new book. (UI only)</p>
 
-            <form class="mt-6 space-y-4">
+            <form action="{{ route("dashboard.books.post") }}" method="POST" class="mt-6 space-y-4">
+                @csrf
                 <div>
                     <label class="block text-sm text-slate-600">Title</label>
-                    <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Enter book title" />
+                    <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Enter book title" name="book_name" />
+                </div>
+
+                <div>
+                    <label class="block text-sm text-slate-600">Description</label>
+                    <textarea type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Enter book title" name="book_description" > </textarea>
                 </div>
 
                 <div>
                     <label class="block text-sm text-slate-600">Author</label>
-                    <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Author name" />
+                    <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Author name" name="book_author" />
+                </div>
+                 <div>
+                    <label class="block text-sm text-slate-600">Pages</label>
+                    <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="How many pages are there in the book" name="book_pages" />
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-sm text-slate-600">Price</label>
-                        <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="$0.00" />
+                        <input type="text" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="$0.00" name="book_price"/>
                     </div>
                     <div>
                         <label class="block text-sm text-slate-600">Category</label>
-                        <select class="w-full border rounded-lg px-3 py-2 mt-1">
+                        <select class="w-full border rounded-lg px-3 py-2 mt-1" name="category">
                             <option>Fiction</option>
                             <option>Education</option>
                             <option>Programming</option>
@@ -36,29 +46,28 @@
                     </div>
                     <div>
                         <label class="block text-sm text-slate-600">Status</label>
-                        <select class="w-full border rounded-lg px-3 py-2 mt-1">
-                            <option>In stock</option>
-                            <option>Low stock</option>
-                            <option>Out of stock</option>
+                        <select class="w-full border rounded-lg px-3 py-2 mt-1" name="status">
+                            <option>Active</option>
+                            <option>Inactive</option>
                         </select>
                     </div>
                 </div>
 
-                <div>
+                {{-- <div>
                     <label class="block text-sm text-slate-600">Cover Image</label>
                     <div class="mt-2 flex items-center gap-4">
                         <div class="w-24 h-32 bg-slate-100 rounded flex items-center justify-center text-slate-400">Preview</div>
                         <button type="button" class="border px-3 py-2 rounded">Upload Image</button>
                     </div>
-                </div>
+                </div> --}}
 
-                <div>
+                {{-- <div>
                     <label class="block text-sm text-slate-600">Description</label>
                     <textarea rows="4" class="w-full border rounded-lg px-3 py-2 mt-1" placeholder="Short description"></textarea>
-                </div>
+                </div> --}}
 
                 <div class="pt-4">
-                    <button type="button" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded">Create Book</button>
+                    <button type="submit" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded">Create Book</button>
                     <a href="#" class="ml-3 text-slate-600">Cancel</a>
                 </div>
             </form>

@@ -21,6 +21,7 @@ Route::get("/books/{kitab:slug}", [BookController::class, "bookDetailPage"])->na
 Route::get("/products", [BookController::class,"products"])->name("products.index");
 Route::get('/dashboard', [AdminController::class,"dashboard"])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get("/dashboard/books", [AdminController::class,"books"])->middleware(['auth', 'verified'])->name('dashboard.books');
+Route::post("/dashboard/books", [AdminController::class,"postBooks"])->middleware(['auth', 'verified'])->name('dashboard.books.post');
 Route::get("/dashboard/books/create", [AdminController::class,"create"])->middleware(['auth', 'verified'])->name('dashboard.books.create');
 Route::get("/dashboard/books/{book}/show", [AdminController::class,"show"])->middleware(['auth', 'verified'])->name('dashboard.books.show');
 
