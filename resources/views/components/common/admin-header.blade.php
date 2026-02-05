@@ -26,13 +26,69 @@
          </button>
 
          <!-- User Profile Dropdown Trigger -->
-         <div class="flex items-center ml-3 cursor-pointer">
-             <div
-                 class="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold border border-brand-200">
-                 JD
+         {{-- <div class="relative" x-data="{ open: false }">
+             <button @click="open = !open" @click.outside="open = false"
+                 class="flex items-center ml-3 cursor-pointer focus:outline-none">
+                 <div
+                     class="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold border border-brand-200">
+                     {{ substr(Auth::user()->name ?? 'A', 0, 1) }}
+                 </div>
+                 <span
+                     class="hidden md:block ml-2 text-sm font-medium text-slate-700">{{ Auth::user()->name ?? 'Admin' }}</span>
+                 <i class="hidden md:block fa-solid fa-chevron-down ml-2 text-xs text-slate-400"></i>
+             </button>
+
+             <!-- Dropdown Menu -->
+             <div x-show="open" x-transition:enter="transition ease-out duration-100"
+                 x-transition:enter-start="transform opacity-0 scale-95"
+                 x-transition:enter-end="transform opacity-100 scale-100"
+                 x-transition:leave="transition ease-in duration-75"
+                 x-transition:leave-start="transform opacity-100 scale-100"
+                 x-transition:leave-end="transform opacity-0 scale-95"
+                 class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 z-50 origin-top-right"
+                 style="display: none;">
+
+                 <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Your Profile</a>
+                 <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Settings</a>
+                 <div class="border-t border-slate-100 my-1"></div>
+
+                 <!-- Logout Form -->
+                 <form method="POST" action="{{ route('logout') }}">
+                     @csrf
+                     <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                         Sign out
+                     </button>
+                 </form>
              </div>
-             <span class="hidden md:block ml-2 text-sm font-medium text-slate-700">John Doe</span>
-             <i class="hidden md:block fa-solid fa-chevron-down ml-2 text-xs text-slate-400"></i>
+         </div> --}}
+         <!-- User Profile Dropdown (CSS Only) -->
+         <div class="relative group ml-3">
+             <button class="flex items-center cursor-pointer focus:outline-none">
+                 <div
+                     class="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold border border-brand-200">
+                     {{ substr(Auth::user()->name ?? 'A', 0, 1) }}
+                 </div>
+                 <span
+                     class="hidden md:block ml-2 text-sm font-medium text-slate-700">{{ Auth::user()->name ?? 'Admin' }}</span>
+                 <i
+                     class="hidden md:block fa-solid fa-chevron-down ml-2 text-xs text-slate-400 group-hover:rotate-180 transition-transform duration-200"></i>
+             </button>
+
+             <!-- Dropdown Menu -->
+             <div
+                 class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 z-50 origin-top-right invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-in-out">
+                 <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Your Profile</a>
+                 <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Settings</a>
+                 <div class="border-t border-slate-100 my-1"></div>
+
+                 <!-- Logout Form -->
+                 <form method="POST" action="{{ route('logout') }}">
+                     @csrf
+                     <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                         Sign out
+                     </button>
+                 </form>
+             </div>
          </div>
      </div>
  </header>

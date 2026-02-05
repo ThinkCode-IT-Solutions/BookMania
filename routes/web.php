@@ -18,7 +18,16 @@ Route::get("/contact", function () {
 
 Route::get("/books", [BookController::class, "index"])->name("books.index");
 Route::get("/books/{kitab:slug}", [BookController::class, "bookDetailPage"])->name("books.detail");
-Route::get("/products", [BookController::class,"products"])->name("products.index");
+
+
+//=========================
+// Admin Routes
+//=========================
+//=========================
+
+
+
+
 Route::get('/dashboard', [AdminController::class,"dashboard"])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get("/dashboard/books", [AdminController::class,"books"])->middleware(['auth', 'verified'])->name('dashboard.books');
 Route::post("/dashboard/books", [AdminController::class,"postBooks"])->middleware(['auth', 'verified'])->name('dashboard.books.post');

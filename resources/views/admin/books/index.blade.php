@@ -31,6 +31,12 @@
             <div class="text-sm text-slate-500">Showing <strong>3</strong> sample books</div>
         </div>
 
+        
+        @if (Session::has('success'))
+            <div class="flex items-center justify-between mb-4 bg-green-100 p-4 rounded-lg">
+                <h2 class="text-lg font-semibold text-slate-700">✅ {{ Session::get('success') }}</h2>
+            </div>
+        @endif
 
         <!-- Table view (optional) -->
         <div class="mt-8 bg-white rounded-lg shadow-sm p-4">
@@ -58,7 +64,7 @@
                                 <tr class="border-b">
                                     <td class="p-3">{{ $item->name }}</td>
                                     <td class="p-3">{{ $item->aurthor_name }}</td>
-                                    <td class="p-3">{{ $item->category ?? "No Category" }}</td>
+                                    <td class="p-3">{{ $item->category ?? 'No Category' }}</td>
                                     <td class="p-3">${{ $item->price }}</td>
                                     <td class="p-3"><span class="text-emerald-600">In stock</span></td>
                                     <td class="p-3">

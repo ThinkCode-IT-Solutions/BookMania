@@ -80,7 +80,7 @@
                     </p>
 
                     <!-- Specifications Quick View -->
-                    <div class="bg-sepia-100 rounded-xl p-6 mb-8">
+                    {{-- <div class="bg-sepia-100 rounded-xl p-6 mb-8">
                         <h3 class="font-semibold text-sepia-900 mb-4">Quick Specs</h3>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="flex items-center space-x-3">
@@ -108,7 +108,7 @@
                                 <span class="text-sepia-700">15.6" FHD IPS Display</span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Quantity & Add to Cart -->
                     <div class="flex flex-col sm:flex-row gap-4 mb-8">

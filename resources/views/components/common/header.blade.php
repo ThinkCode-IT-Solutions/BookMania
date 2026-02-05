@@ -15,8 +15,8 @@
                 <!-- Navigation -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="/" class="text-sepia-700 hover:text-sepia-900 transition-colors font-medium">Home</a>
-                    {{-- <a href="/books" class="text-sepia-700 hover:text-sepia-900 transition-colors font-medium">Laptops</a> --}}
-                    <a href="/products" class="text-sepia-700 hover:text-sepia-900 transition-colors font-medium">Products</a>
+                <a href="/books" class="text-sepia-700 hover:text-sepia-900 transition-colors font-medium">Books</a>
+                    {{-- <a href="/products" class="text-sepia-700 hover:text-sepia-900 transition-colors font-medium">Products</a> --}}
                     <a href="/about" class="text-sepia-700 hover:text-sepia-900 transition-colors font-medium">About</a>
                     <a href="/contact" class="text-sepia-700 hover:text-sepia-900 transition-colors font-medium">Contact</a>
                 </nav>
