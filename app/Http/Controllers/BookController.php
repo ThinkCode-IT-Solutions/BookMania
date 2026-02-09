@@ -19,7 +19,7 @@ class BookController extends Controller
     }
 
     public function bookDetailPage (Book $kitab) {
-        // dd($book);
+        // dd($kitab->images);
 
         // $kitab = Book::where("slug","=" , $book)->first();
         return view("site.book-detail",compact("kitab"));

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
+use App\Models\BookImage;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,7 +19,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // factory wala tareeka
-        // User::factory()->count(5)->create();
+        User::factory()->count(6)->create();
+        Book::factory()->count(10)->create();
+
 
 
         // direct tareeka
@@ -31,7 +34,6 @@ class DatabaseSeeder extends Seeder
             'price' => '449',
             'is_active' => true,
         ]);
-
         Book::factory()->create([
             'name' => "The Psychology of Money",
         ]);
@@ -41,7 +43,7 @@ class DatabaseSeeder extends Seeder
         Book::factory()->create([
             'name' => "The Subtle Art of Not Giving a F*ck",
         ]);
-
+        BookImage::factory()->count(100)->create();
 
         $this->call([
             ProductSeeder::class,

@@ -22,4 +22,10 @@ class Book extends Model
 
     // ye sab columns ko mass assign karne ki ijazat dega
     protected $guarded = [];
+
+
+
+    public function images() {
+        return $this->hasMany(BookImage::class);
+    }
 }
