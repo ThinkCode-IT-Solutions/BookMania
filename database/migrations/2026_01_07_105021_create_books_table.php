@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double("price");
             $table->string("aurthor_name");
             $table->integer("pages");
+            $table->string("cover_image")->nullable();
             $table->boolean("is_active");
 
             $table->timestamps();

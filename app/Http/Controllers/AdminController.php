@@ -33,14 +33,29 @@ class AdminController extends Controller
             "book_price" => 'required|string',
             "category" => 'required|string',
             "status" => 'required',
+            "cover_image" => ["required","mimes:jpeg,png,jpg,gif,svg", "max:2048"],
         ]);
 
+        // dd($request->all());
         $slug = Str::slug($request->book_name,"-");
         $status = $request->status === "Active" ? true : false;
 
 
         // TODO: image upload handling
+        if($request->hasFile("cover_image")){
+            // fetch the orignal image from temporary server storage
+            $image = $request->file("cover_image");
 
+            // name the image
+            $imageName = "IMG-" . time() . "." . $image->getClientOriginalExtension();
+
+
+
+            // store the image
+            $image->storeAs("book_covers", $imageName, "public");
+        }else{
+
+        }
         // Create a new book record
         Book::create([
             "name" => $request->book_name,
@@ -50,6 +65,7 @@ class AdminController extends Controller
             "aurthor_name" => $request->book_author,
             "pages" => $request->book_pages,
             "is_active" => $status,
+            "cover_image" => "book_covers/" . $imageName,
         ]);
 
 
