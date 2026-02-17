@@ -87,7 +87,7 @@
                         <p class="text-sepia-600 text-sm mb-2">{{ $laptop->aurthor_name }}</p>
                         <p class="text-sepia-500 text-xs mb-3">{{ $laptop->pages }} pages</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sepia-800 font-bold text-lg">${{ number_format($laptop->price, 2) }}</span>
+                            <span class="text-sepia-800 font-bold text-lg">${{ $laptop->price }}</span>
                             <button class="bg-sepia-600 text-sepia-50 px-3 py-1.5 rounded-lg text-sm hover:bg-sepia-700 transition-colors">
                                 Add to Cart
                             </button>

@@ -31,7 +31,7 @@
             <div class="text-sm text-slate-500">Showing <strong>3</strong> sample books</div>
         </div>
 
-        
+
         @if (Session::has('success'))
             <div class="flex items-center justify-between mb-4 bg-green-100 p-4 rounded-lg">
                 <h2 class="text-lg font-semibold text-slate-700">✅ {{ Session::get('success') }}</h2>
@@ -48,6 +48,7 @@
                 <table class="min-w-full text-sm text-left">
                     <thead class="text-slate-500 uppercase text-xs border-b">
                         <tr>
+                            <th class="p-3">Image</th>
                             <th class="p-3">Title</th>
                             <th class="p-3">Author</th>
                             <th class="p-3">Category</th>
@@ -62,6 +63,17 @@
 
                             @foreach ($books as $item)
                                 <tr class="border-b">
+                                    <td>
+                                        @if($item->cover_image)
+                                        <div class="m-1">
+                                            <img src="{{ asset("storage/" . $item->cover_image) }}" alt="no image found" style="width: 80px;height:80px;border-radius:10px">
+                                        </div>
+
+                                        @else
+                                            <div class="m-1" style="width: 80px;height:80px;background-color: #e2e8f0;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                                                <span class="text-slate-500 text-xs">No Image</span >
+                                        @endif
+                                    </td>
                                     <td class="p-3">{{ $item->name }}</td>
                                     <td class="p-3">{{ $item->aurthor_name }}</td>
                                     <td class="p-3">{{ $item->category ?? 'No Category' }}</td>
@@ -108,3 +120,4 @@
 
     </main>
 </x-layouts.admin-layout>
+

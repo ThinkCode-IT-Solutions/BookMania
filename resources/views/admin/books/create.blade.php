@@ -82,7 +82,7 @@
                 </div>
                 <div>
                         <label class="block text-sm text-slate-600" for="image">Cover Image</label>
-                        <input type="file" id="image" class="w-full border rounded-lg px-3 py-2 mt-1" name="cover_image">
+                        <input type="file" id="image" class="w-full border rounded-lg px-3 py-2 mt-1" name="cover_image" multiple>
                         @error('cover_image')
                             <div class="text-red-600">{{ $message }}</div>
                         @enderror
